@@ -10,6 +10,7 @@ namespace MCGibberer
     class MapBuilder
     {
         private List<WordChainItem> _wordList;
+        private Random _randomizer = new Random();
 
         public MapBuilder(string input)
         {
@@ -44,19 +45,31 @@ namespace MCGibberer
             }
         }
 
-        internal string MakeSentence(int SentenceLength, int wordDistance)
+        internal string MakeSentence(int SentenceLength, int wordDistance, bool fun = false)
         {
-            int startingLoc = new Random().Next(_wordList.Count);
+            int startingLoc = _randomizer.Next(_wordList.Count);
 
             List<WordChainItem> sentence = new List<WordChainItem>();
             sentence.Add(_wordList[startingLoc]);
 
-            for (int wordCount = 1; wordCount < SentenceLength; wordCount++)
-                sentence.Add(sentence.Last().GetNextWord(wordDistance, sentence[0]));
+            WordChainItem sentenceRoot = _wordList[startingLoc];
 
-            string result = "";
+            //if in fun mode, set random root word.
+            if(fun)
+                sentenceRoot = _wordList[_randomizer.Next(_wordList.Count)];
 
             Regex regex = new Regex(@"\W");
+
+            for (int wordCount = 1; wordCount < SentenceLength; wordCount++)
+            {
+                //Ignore punctuation
+                if (!regex.IsMatch(sentence.Last().Word) && sentence.Last().Word.Length == 1)
+                    wordCount--;
+
+                sentence.Add(sentence.Last().GetNextWord(wordDistance, sentenceRoot));
+            }
+
+            string result = "";  
 
             foreach (var item in sentence)
             {

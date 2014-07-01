@@ -24,6 +24,11 @@ namespace MCGibberer
             Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
             Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
 
+            //Console.WriteLine("Fun mode:");
+            //Console.WriteLine(map.MakeSentence(13, 4, true) + Environment.NewLine);
+            //Console.WriteLine(map.MakeSentence(13, 4, true) + Environment.NewLine);
+            //Console.WriteLine(map.MakeSentence(13, 4, true) + Environment.NewLine);
+            //Console.WriteLine(map.MakeSentence(13, 4, true) + Environment.NewLine);
 
             //Russian test
             //streamReader = new StreamReader(@".\Test Text RUS.txt");
