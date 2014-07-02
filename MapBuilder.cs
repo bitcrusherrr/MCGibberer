@@ -18,6 +18,8 @@ namespace MCGibberer
 
             Regex regex = new Regex(@"^(\s+|\d+|\w+|[^\d\s\w])+$");
 
+            input.Replace("\n", " ");
+
             if (regex.IsMatch(input))
             {
                 Match match = regex.Match(input);
