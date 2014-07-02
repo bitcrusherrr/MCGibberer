@@ -45,18 +45,12 @@ namespace MCGibberer
             }
         }
 
-        internal string MakeSentence(int SentenceLength, int wordDistance, bool fun = false)
+        internal string MakeSentence(int SentenceLength)
         {
             int startingLoc = _randomizer.Next(_wordList.Count);
 
             List<WordChainItem> sentence = new List<WordChainItem>();
             sentence.Add(_wordList[startingLoc]);
-
-            WordChainItem sentenceRoot = _wordList[startingLoc];
-
-            //if in fun mode, set random root word.
-            if(fun)
-                sentenceRoot = _wordList[_randomizer.Next(_wordList.Count)];
 
             Regex regex = new Regex(@"\W");
 
@@ -66,10 +60,10 @@ namespace MCGibberer
                 if (!regex.IsMatch(sentence.Last().Word) && sentence.Last().Word.Length == 1)
                     wordCount--;
 
-                sentence.Add(sentence.Last().GetNextWord(wordDistance, sentenceRoot));
+                sentence.Add(sentence.Last().GetNextChainItem());
             }
 
-            string result = "";  
+            string result = "";
 
             foreach (var item in sentence)
             {
@@ -79,7 +73,7 @@ namespace MCGibberer
                     result += item.Word;
             }
 
-            return result;      
+            return result;  
         }
     }
 }

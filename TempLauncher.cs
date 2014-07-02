@@ -18,27 +18,20 @@ namespace MCGibberer
             streamReader.Close();
 
             //Map now has list of all words, which also know what their possible folowers are
-            //string test = map.MakeSentence(13, 4);
-            Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
-            Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
-            Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
-            Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
-
-            //Console.WriteLine("Fun mode:");
-            //Console.WriteLine(map.MakeSentence(13, 4, true) + Environment.NewLine);
-            //Console.WriteLine(map.MakeSentence(13, 4, true) + Environment.NewLine);
-            //Console.WriteLine(map.MakeSentence(13, 4, true) + Environment.NewLine);
-            //Console.WriteLine(map.MakeSentence(13, 4, true) + Environment.NewLine);
+            Console.WriteLine(map.MakeSentence(13) + Environment.NewLine);
+            Console.WriteLine(map.MakeSentence(13) + Environment.NewLine);
+            Console.WriteLine(map.MakeSentence(13) + Environment.NewLine);
+            Console.WriteLine(map.MakeSentence(13) + Environment.NewLine);
 
             //Russian test
             //streamReader = new StreamReader(@".\Test Text RUS.txt");
 
             //map = new MapBuilder(streamReader.ReadToEnd());
             //Console.WriteLine("");
-            //Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
-            //Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
-            //Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
-            //Console.WriteLine(map.MakeSentence(13, 5) + Environment.NewLine);
+            //Console.WriteLine(map.MakeSentence(13) + Environment.NewLine);
+            //Console.WriteLine(map.MakeSentence(13) + Environment.NewLine);
+            //Console.WriteLine(map.MakeSentence(13) + Environment.NewLine);
+            //Console.WriteLine(map.MakeSentence(13) + Environment.NewLine);
 
             //streamReader.Close();
 
